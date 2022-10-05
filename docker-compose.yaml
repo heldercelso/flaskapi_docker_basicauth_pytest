@@ -1,0 +1,13 @@
+version: "3.9"
+# command to access container already running:
+# - command on gitbash: winpty docker exec -ti flask_app bash
+services:
+    web:
+        image: flask_app
+        container_name: flask_app
+        build: .
+        command: sh -cx "python app.py"
+        volumes:
+            - .:/code
+        ports:
+            - "5000:5000"
